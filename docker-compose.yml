@@ -4,7 +4,7 @@ services:
     depends_on: [ webserver ]
     networks: [ net-presence ]
     ports:
-      - "127.0.0.1:80:80"
+      - "127.0.0.1:8080:80"
     env_file: [ .env ]
     environment:
       - POSTGRES_HOST=postgres

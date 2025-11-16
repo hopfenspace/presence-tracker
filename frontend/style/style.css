@@ -173,6 +173,8 @@ h1 .utopia {
 	corner-shape: bevel;
 	box-shadow: 0 0 16px 8px var(--color), 0 0 16px 8px var(--color) inset;
 	text-shadow: 0 0 16px var(--color), 0 0 16px var(--color), 0 0 16px var(--color);
+
+	transition: box-shadow 0.2s ease-out, text-shadow 0.2s ease-out;
 }
 
 .status .paf {
@@ -205,159 +207,60 @@ table.date-stats {
 	justify-self: start;
 	table-layout: fixed;
 	border-collapse: collapse;
-}
-
-table.date-stats1 {
-	height: 80%;
-	width: 100%;
-}
-
-table.date-stats1 thead > tr {
-	height: 3em;
-}
-
-table.date-stats1 tr > td:nth-child(1) {
-	width: 12ch;
-	text-align: right;
-}
-
-table.date-stats1 thead tr > td:nth-child(1) {
-	vertical-align: bottom;
-}
-
-table.date-stats1 tbody > tr > td[v],
-table.date-stats1 thead > tr > td[v] {
-	position: relative;
-	text-align: center;
-}
-
-table.date-stats1 tbody > tr > td[v]::before {
-	display: block;
-	position: absolute;
-	content: "";
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-	width: 1ex;
-	height: 1ex;
-	transform: rotate(45deg);
-	background-color: gray;
-}
-
-table.date-stats1 tbody > tr > td[v="1"]::before {
-	background-color: #ffae00;
-}
-
-table.date-stats1 tbody > tr > td[v="2"]::before {
-	background-color: #ffe600;
-	width: 1.25ex;
-	height: 1.25ex;
-}
-
-table.date-stats1 tbody > tr > td[v="3"]::before {
-	background-color: #6cca00;
-	width: 2ex;
-	height: 2ex;
-	border-radius: 1ex;
-}
-
-table.date-stats1 thead > tr > td[v]::before {
-	display: block;
-	position: absolute;
-	content: "";
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-	width: 2ex;
-	height: 0;
-	border-radius: 2px;
-	padding: 1px;
-	background-color: #00aeff;
-}
-
-table.date-stats1 thead > tr > td[v="1"]::before {
-	height: 20%;
-}
-
-table.date-stats1 thead > tr > td[v="2"]::before {
-	height: 40%;
-}
-
-table.date-stats1 thead > tr > td[v="3"]::before {
-	height: 60%;
-}
-
-table.date-stats1 thead > tr > td[v="4"]::before {
-	height: 80%;
-}
-
-table.date-stats1 thead > tr > td[v="5"]::before {
 	height: 100%;
-}
-
-
-
-table.date-stats2 {
-	height: 100%;
-}
-
-table.date-stats2 {
 	--px: 3px;
 }
 
 @media screen and (max-width: 1000px) {
-	table.date-stats2 {
+	table.date-stats {
 		--px: 2px;
 	}
 }
 
 @media screen and (max-width: 800px) {
-	table.date-stats2 {
+	table.date-stats {
 		margin: auto;
 		--px: 5px;
 	}
 }
 
 @media screen and (max-width: 680px) {
-	table.date-stats2 {
+	table.date-stats {
 		margin: auto;
 		--px: 4px;
 	}
 }
 
 @media screen and (max-width: 600px) {
-	table.date-stats2 {
+	table.date-stats {
 		margin: auto;
 		--px: 3px;
 	}
 }
 
 @media screen and (max-width: 500px) {
-	table.date-stats2 {
+	table.date-stats {
 		margin: auto;
 		--px: 2px;
 	}
 }
 
 @media screen and (max-width: 430px) {
-	table.date-stats2 {
+	table.date-stats {
 		margin: auto;
 		--px: 1px;
 	}
 }
 
-table.date-stats2 tr {
+table.date-stats tr {
 	height: 2em;
 }
 
-table.date-stats2 tr.today {
+table.date-stats tr.today {
 	height: 5em;
 }
 
-table.date-stats2 tr > td:nth-child(1) {
+table.date-stats tr > td:nth-child(1) {
 	width: 9ch;
 	padding-right: 1ch;
 	text-align: right;
@@ -366,22 +269,22 @@ table.date-stats2 tr > td:nth-child(1) {
 	transform: translate(0, 3px);
 }
 
-table.date-stats2 tr:not(.today) > td:nth-child(1) {
+table.date-stats tr:not(.today) > td:nth-child(1) {
 	opacity: 0.5;
 }
 
-table.date-stats2 thead tr > td:nth-child(1) {
+table.date-stats thead tr > td:nth-child(1) {
 	vertical-align: bottom;
 }
 
-table.date-stats2 tr > td[v] {
+table.date-stats tr > td[v] {
 	position: relative;
 	text-align: center;
 	width: calc(var(--px) * 3);
 }
 
-table.date-stats2 td[v]::after,
-table.date-stats2 td[a]::before {
+table.date-stats td[v]::after,
+table.date-stats td[a]::before {
 	display: block;
 	position: absolute;
 	content: "";
@@ -392,14 +295,15 @@ table.date-stats2 td[a]::before {
 	border-radius: 2px;
 	padding: 1px;
 	background-color: #808080aa;
+	transition: height 0.3s ease-out;
 }
 
-table.date-stats2 tr td[a]::before {
+table.date-stats tr td[a]::before {
 	background-color: #00aeff;
 	line-height: 0;
 }
 
-table.date-stats2 tr td[a]::after {
+table.date-stats tr td[a]::after {
 	background-color: transparent;
 	color: #00aeff;
 	content: "LIVE (" attr(a) ")";
@@ -412,39 +316,64 @@ table.date-stats2 tr td[a]::after {
 	padding-bottom: 2em;
 }
 
-table.date-stats2 td[v="1"]::after,
-table.date-stats2 td[a="1"]::before {
-	height: 20%;
+table.date-stats td[v="1"]::after,
+table.date-stats td[a="1"]::before {
+	height: 9%;
 }
 
-table.date-stats2 td[v="2"]::after,
-table.date-stats2 td[a="2"]::before {
-	height: 40%;
+table.date-stats td[v="2"]::after,
+table.date-stats td[a="2"]::before {
+	height: 18%;
 }
 
-table.date-stats2 td[v="3"]::after,
-table.date-stats2 td[a="3"]::before {
-	height: 60%;
+table.date-stats td[v="3"]::after,
+table.date-stats td[a="3"]::before {
+	height: 27%;
 }
 
-table.date-stats2 td[v="4"]::after,
-table.date-stats2 td[a="4"]::before {
-	height: 80%;
+table.date-stats td[v="4"]::after,
+table.date-stats td[a="4"]::before {
+	height: 36%;
 }
 
-table.date-stats2 td[v="5"]::after,
-table.date-stats2 td[a="5"]::before {
-	height: 100%;
+table.date-stats td[v="5"]::after,
+table.date-stats td[a="5"]::before {
+	height: 45%;
 }
 
-table.date-stats2 .legend th[colspan] {
+table.date-stats td[v="6"]::after,
+table.date-stats td[a="6"]::before {
+	height: 54%;
+}
+
+table.date-stats td[v="7"]::after,
+table.date-stats td[a="7"]::before {
+	height: 63%;
+}
+
+table.date-stats td[v="8"]::after,
+table.date-stats td[a="8"]::before {
+	height: 72%;
+}
+
+table.date-stats td[v="9"]::after,
+table.date-stats td[a="9"]::before {
+	height: 81%;
+}
+
+table.date-stats td[v="10"]::after,
+table.date-stats td[a="10"]::before {
+	height: 90%;
+}
+
+table.date-stats .legend th[colspan] {
 	position: relative;
 	padding-top: 5px;
 	height: 1em;
 	text-align: left;
 	padding-left: calc(2 * var(--px));
 }
-table.date-stats2 .legend th[colspan]::before {
+table.date-stats .legend th[colspan]::before {
 	content: "";
 	position: absolute;
 	top: 2px;
@@ -453,12 +382,4 @@ table.date-stats2 .legend th[colspan]::before {
 	background-color: white;
 	right: 0;
 	height: 4px;
-}
-
-table.date-stats2 tbody > tr:not(.legend) {
-	border-top: 16px solid transparent;
-}
-
-table.date-stats2 tbody > tr.today {
-	border-top: 32px solid transparent;
 }

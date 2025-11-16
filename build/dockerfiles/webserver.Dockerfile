@@ -30,6 +30,9 @@ apt-get update
 apt-get install -y libssl-dev ca-certificates
 EOF
 
+COPY ./build/webserver/startup.sh /startup.sh
+RUN chmod +x /startup.sh
+
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
 ARG UID=10000
@@ -49,4 +52,4 @@ COPY --from=buildrust /bin/server /bin/
 USER appuser
 
 # What the container should run when it is started.
-ENTRYPOINT ["/bin/server"]
+CMD ["/startup.sh"]

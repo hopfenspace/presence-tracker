@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Hackerspace Pfaffenhofen</title>
 	<style>
-		body, html { background-color: black; color: white; }
-		.status:not(.open) > .line > .open { display: none; }
-		.status:not(.unclear-open) > .line > .unclear-open { display: none; }
-		.status:not(.closed) > .line > .closed { display: none; }
-		.status:not(.loading) > .line > .loading { display: none; }
+		body,
+		html {
+			background-color: black;
+			color: white;
+		}
+
+		.status:not(.open)>.line>.open {
+			display: none;
+		}
+
+		.status:not(.unclear-open)>.line>.unclear-open {
+			display: none;
+		}
+
+		.status:not(.closed)>.line>.closed {
+			display: none;
+		}
+
+		.status:not(.loading)>.line>.loading {
+			display: none;
+		}
 	</style>
 
 	<link rel="stylesheet" href="style/style.css">
 </head>
+
 <body>
 	<h1>
 		<div class="hopfenspace">
@@ -29,13 +47,7 @@
 		</div>
 	</h1>
 	<div class="location utopia">
-		<p>
-			Location "Utopia" - regelmäßige Öffnungszeiten:
-		</p>
-		<ul>
-			<li>Jeden 1. Donnerstag im Monat</li>
-		</ul>
-		<div class="status open">
+		<div class="status unclear-open">
 			<div class="bg"></div>
 			<img src="img/hackerspace-color.svg" alt="Hackerspace">
 			<div class="line">
@@ -44,26 +56,329 @@
 				<div class="closed">CLOSED</div>
 				<div class="loading">LOADING</div>
 			</div>
-			<p class="last-update">16.11.2025 20:00</p>
-			<a href="https://pfaffenhofen.de/artikel/jugendkultur-talentstation-utopia/" target="_blank" referrerpolicy="origin">
+			<div class="info">
+				<p class="last-update">16.11.2025 20:00</p>
+				<p>
+					Location "Utopia" - regelmäßige Öffnungszeiten:
+				</p>
+				<ul>
+					<li>Jeden 1. Donnerstag im Monat</li>
+				</ul>
+			</div>
+			<table class="date-stats date-stats2">
+				<tbody>
+					<tr>
+						<td>Donnerstags</td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+					</tr>
+					<tr>
+						<td>Freitags</td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="2"></td>
+						<td v="4"></td>
+						<td v="4"></td>
+						<td v="3"></td>
+					</tr>
+					<tr>
+						<td>Samstags</td>
+						<td v="2"></td>
+						<td v="2"></td>
+						<td v="1"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="1"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="2"></td>
+						<td v="3"></td>
+						<td v="4"></td>
+						<td v="4"></td>
+						<td v="5"></td>
+						<td v="5"></td>
+						<td v="5"></td>
+						<td v="5"></td>
+						<td v="4"></td>
+						<td v="4"></td>
+						<td v="3"></td>
+					</tr>
+					<tr class="today">
+						<td>Sonntags</td>
+						<td v="2"></td>
+						<td v="2"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="1"></td>
+						<td v="1"></td>
+						<td v="1"></td>
+						<td v="1"></td>
+						<td v="2"></td>
+						<td v="2"></td>
+						<td v="2"></td>
+						<td v="3"></td>
+						<td v="3"></td>
+						<td v="3"></td>
+						<td v="3" a="3"></td>
+						<td v="2"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+					</tr>
+					<tr class="legend">
+						<th></th>
+						<th colspan="4">06</th>
+						<th colspan="4">10</th>
+						<th colspan="4">14</th>
+						<th colspan="4">18</th>
+						<th colspan="4">22</th>
+						<th colspan="4">02</th>
+					</tr>
+					<tr>
+						<td>Montags</td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+					</tr>
+					<tr>
+						<td>Dienstags</td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="1"></td>
+						<td v="2"></td>
+						<td v="2"></td>
+						<td v="2"></td>
+						<td v="2"></td>
+						<td v="1"></td>
+					</tr>
+					<tr>
+						<td>Mittwochs</td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- <table class="date-stats date-stats1">
+				<thead>
+					<tr>
+						<td>Anwesenheit</td>
+						<td v="3"></td>
+						<td v="1"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="3"></td>
+						<td v="4"></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Montags</td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+					</tr>
+					<tr>
+						<td>Dienstags</td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="3"></td>
+						<td v="1"></td>
+					</tr>
+					<tr>
+						<td>Mittwochs</td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+					</tr>
+					<tr>
+						<td>Donnerstags</td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="1"></td>
+						<td v="2"></td>
+					</tr>
+					<tr>
+						<td>Freitags</td>
+						<td v="1"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="1"></td>
+					</tr>
+					<tr>
+						<td>Samstags</td>
+						<td v="1"></td>
+						<td v="1"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="1"></td>
+					</tr>
+					<tr>
+						<td>Sonntags</td>
+						<td v="2"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="0"></td>
+						<td v="1"></td>
+						<td v="0"></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th></th>
+						<th>00<br/>-<br/>04</th>
+						<th>04<br/>-<br/>08</th>
+						<th>08<br/>-<br/>12</th>
+						<th>12<br/>-<br/>16</th>
+						<th>16<br/>-<br/>20</th>
+						<th>20<br/>-<br/>24</th>
+					</tr>
+				</tfoot>
+			</table> -->
+			<a href="https://pfaffenhofen.de/artikel/jugendkultur-talentstation-utopia/" target="_blank"
+				referrerpolicy="origin">
 				<img src="img/utopia-paf.svg" alt="Utopia - Stadt Pfaffenhofen" class="paf">
 			</a>
 		</div>
 	</div>
 	<div class="location bunker">
-		<p>
-			Location "Bunker" - keine regelmäßigen Öffnungszeiten.
-		</p>
-		<div class="status open">
-			<img src="img/hop-transparent.svg" alt="Bunker">
+		<div class="status closed">
+			<img src="img/bunker-logo.svg" alt="Bunker">
 			<div class="line">
 				<div class="open">OPEN</div>
 				<div class="unclear-open">NO DATA</div>
 				<div class="closed">CLOSED</div>
 				<div class="loading">LOADING</div>
 			</div>
-			<p class="last-update">16.11.2025 20:00</p>
+			<div class="info">
+				<p class="last-update">16.11.2025 20:00</p>
+				<p>
+					Keine regulären Öffnungszeiten
+				</p>
+			</div>
 		</div>
 	</div>
 </body>
+
 </html>

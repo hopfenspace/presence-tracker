@@ -11,6 +11,7 @@
 body, html {
 	font-family: Anta, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 16px;
+	font-weight: 400;
 	margin: 0;
 	padding: 0;
 }
@@ -48,36 +49,77 @@ h1 .utopia {
 	--color: #199de9;
 }
 .status.unclear-open {
-	--color: #ff9100;
+	--color: #199de983;
 }
 .status.closed {
-	--color: #ca008d;
+	--color: #ff96794f;
+}
+
+.bunker .status.open {
+	--color: #08a860;
 }
 
 .status {
 	width: 100%;
 	margin: 0;
 	padding: 64px 0;
-	gap: 16px;
+	gap: 32px;
 	box-sizing: border-box;
 	background-color: #222;
 	position: relative;
 	min-height: 50vh;
 	display: grid;
-	grid-template-rows: 1fr 1fr 1fr;
-	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-rows: auto auto auto;
+	grid-template-columns: 64px 2fr 2fr 64px;
 	align-items: center;
 	justify-content: center;
 	justify-items: center;
 	box-sizing: border-box;
 	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@media screen and (min-width: 1000px) {
+	.status {
+		grid-template-columns: 1fr 400px 400px 1fr;
+	}
+	.status > .line {
+		font-size: 40px !important;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.status {
+		grid-template-columns: 32px 1fr 32px;
+		grid-template-rows: auto auto auto auto;
+		padding-bottom: 96px;
+	}
+
+	table.date-stats {
+		grid-column: 2 / span 1 !important;
+		grid-row: 4 / span 1 !important;
+	}
+
+	.status .paf {
+		grid-row: 4 / span 1 !important;
+		bottom: -96px !important;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.status {
+		grid-template-columns: 0 1fr 0;
+	}
 }
 
 .utopia .status {
 	background-image: url("../img/utopia.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+}
+
+.bunker .status {
+	background-image: url("../img/bunker.jpg");
 }
 
 .status:before,
@@ -105,22 +147,9 @@ h1 .utopia {
 	grid-row: 1 / span 1;
 	grid-column: 2 / span 1;
 	max-width: 100%;
-	max-height: 100%;
+	max-height: 15vh;
 	width: auto;
 	height: auto;
-}
-
-.status > .last-update {
-	grid-row: 3 / span 1;
-	grid-column: 2 / span 1;
-	text-align: center;
-	align-self: flex-start;
-}
-
-.status > .last-update:before {
-	content: "Stand: ";
-	display: inline;
-	opacity: 0.5;
 }
 
 .status > .line {
@@ -133,14 +162,13 @@ h1 .utopia {
 	border: 4px solid white;
 	box-sizing: border-box;
 	color: white;
-	padding: 16px;
-	font-size: 48px;
-	line-height: 48px;
+	padding: 0.25em;
+	font-size: 5vw;
+	line-height: 1em;
 	font-family: 'Rubik Glitch', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 	width: 100%;
-	max-width: 400px;
 	aspect-ratio: 5/1;
-	border-radius: 128px;
+	border-radius: 4em;
 	text-align: center;
 	corner-shape: bevel;
 	box-shadow: 0 0 16px 8px var(--color), 0 0 16px 8px var(--color) inset;
@@ -154,5 +182,283 @@ h1 .utopia {
 	right: 0;
 	z-index: 2;
 	grid-row: 3 / span 1;
-	grid-column: 1 / span 3;
+	grid-column: 1 / span 4;
+}
+
+.status > .info {
+	grid-row: 3 / span 1;
+	grid-column: 2 / span 1;
+	text-align: center;
+	align-self: flex-start;
+}
+
+.status .last-update:before {
+	content: "Stand: ";
+	display: inline;
+	opacity: 0.5;
+}
+
+table.date-stats {
+	grid-column: 3 / span 1;
+	grid-row: 1 / span 3;
+	align-self: center;
+	justify-self: start;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+table.date-stats1 {
+	height: 80%;
+	width: 100%;
+}
+
+table.date-stats1 thead > tr {
+	height: 3em;
+}
+
+table.date-stats1 tr > td:nth-child(1) {
+	width: 12ch;
+	text-align: right;
+}
+
+table.date-stats1 thead tr > td:nth-child(1) {
+	vertical-align: bottom;
+}
+
+table.date-stats1 tbody > tr > td[v],
+table.date-stats1 thead > tr > td[v] {
+	position: relative;
+	text-align: center;
+}
+
+table.date-stats1 tbody > tr > td[v]::before {
+	display: block;
+	position: absolute;
+	content: "";
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 1ex;
+	height: 1ex;
+	transform: rotate(45deg);
+	background-color: gray;
+}
+
+table.date-stats1 tbody > tr > td[v="1"]::before {
+	background-color: #ffae00;
+}
+
+table.date-stats1 tbody > tr > td[v="2"]::before {
+	background-color: #ffe600;
+	width: 1.25ex;
+	height: 1.25ex;
+}
+
+table.date-stats1 tbody > tr > td[v="3"]::before {
+	background-color: #6cca00;
+	width: 2ex;
+	height: 2ex;
+	border-radius: 1ex;
+}
+
+table.date-stats1 thead > tr > td[v]::before {
+	display: block;
+	position: absolute;
+	content: "";
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 2ex;
+	height: 0;
+	border-radius: 2px;
+	padding: 1px;
+	background-color: #00aeff;
+}
+
+table.date-stats1 thead > tr > td[v="1"]::before {
+	height: 20%;
+}
+
+table.date-stats1 thead > tr > td[v="2"]::before {
+	height: 40%;
+}
+
+table.date-stats1 thead > tr > td[v="3"]::before {
+	height: 60%;
+}
+
+table.date-stats1 thead > tr > td[v="4"]::before {
+	height: 80%;
+}
+
+table.date-stats1 thead > tr > td[v="5"]::before {
+	height: 100%;
+}
+
+
+
+table.date-stats2 {
+	height: 100%;
+}
+
+table.date-stats2 {
+	--px: 3px;
+}
+
+@media screen and (max-width: 1000px) {
+	table.date-stats2 {
+		--px: 2px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	table.date-stats2 {
+		margin: auto;
+		--px: 5px;
+	}
+}
+
+@media screen and (max-width: 680px) {
+	table.date-stats2 {
+		margin: auto;
+		--px: 4px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	table.date-stats2 {
+		margin: auto;
+		--px: 3px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	table.date-stats2 {
+		margin: auto;
+		--px: 2px;
+	}
+}
+
+@media screen and (max-width: 430px) {
+	table.date-stats2 {
+		margin: auto;
+		--px: 1px;
+	}
+}
+
+table.date-stats2 tr {
+	height: 2em;
+}
+
+table.date-stats2 tr.today {
+	height: 5em;
+}
+
+table.date-stats2 tr > td:nth-child(1) {
+	width: 9ch;
+	padding-right: 1ch;
+	text-align: right;
+	vertical-align: bottom;
+	padding-bottom: 0;
+	transform: translate(0, 3px);
+}
+
+table.date-stats2 tr:not(.today) > td:nth-child(1) {
+	opacity: 0.5;
+}
+
+table.date-stats2 thead tr > td:nth-child(1) {
+	vertical-align: bottom;
+}
+
+table.date-stats2 tr > td[v] {
+	position: relative;
+	text-align: center;
+	width: calc(var(--px) * 3);
+}
+
+table.date-stats2 td[v]::after,
+table.date-stats2 td[a]::before {
+	display: block;
+	position: absolute;
+	content: "";
+	bottom: 0;
+	left: 0;
+	width: calc(var(--px) * 2);
+	height: 0;
+	border-radius: 2px;
+	padding: 1px;
+	background-color: #808080aa;
+}
+
+table.date-stats2 tr td[a]::before {
+	background-color: #00aeff;
+	line-height: 0;
+}
+
+table.date-stats2 tr td[a]::after {
+	background-color: transparent;
+	color: #00aeff;
+	content: "LIVE (" attr(a) ")";
+	text-align: center;
+	width: 4ch;
+	left: -2ch;
+	right: -2ch;
+	margin: auto;
+	line-height: 0.9;
+	padding-bottom: 2em;
+}
+
+table.date-stats2 td[v="1"]::after,
+table.date-stats2 td[a="1"]::before {
+	height: 20%;
+}
+
+table.date-stats2 td[v="2"]::after,
+table.date-stats2 td[a="2"]::before {
+	height: 40%;
+}
+
+table.date-stats2 td[v="3"]::after,
+table.date-stats2 td[a="3"]::before {
+	height: 60%;
+}
+
+table.date-stats2 td[v="4"]::after,
+table.date-stats2 td[a="4"]::before {
+	height: 80%;
+}
+
+table.date-stats2 td[v="5"]::after,
+table.date-stats2 td[a="5"]::before {
+	height: 100%;
+}
+
+table.date-stats2 .legend th[colspan] {
+	position: relative;
+	padding-top: 5px;
+	height: 1em;
+	text-align: left;
+	padding-left: calc(2 * var(--px));
+}
+table.date-stats2 .legend th[colspan]::before {
+	content: "";
+	position: absolute;
+	top: 2px;
+	left: calc(25% + 1 * var(--px));
+	width: 2px;
+	background-color: white;
+	right: 0;
+	height: 4px;
+}
+
+table.date-stats2 tbody > tr:not(.legend) {
+	border-top: 16px solid transparent;
+}
+
+table.date-stats2 tbody > tr.today {
+	border-top: 32px solid transparent;
 }

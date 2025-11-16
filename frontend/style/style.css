@@ -1,0 +1,158 @@
+@font-face {
+	font-family: Anta;
+	src: url(fonts/Anta/Anta-Regular.ttf);
+}
+
+@font-face {
+	font-family: 'Rubik Glitch';
+	src: url(fonts/Rubik_Glitch/RubikGlitch-Regular.ttf);
+}
+
+body, html {
+	font-family: Anta, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	display: flex;
+	align-items: end;
+	justify-content: center;
+	gap: 1em;
+}
+
+h1 .hopfenspace,
+h1 .utopia {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 .utopia {
+	gap: 1ex;
+}
+
+@media screen and (max-width: 600px) {
+	h1 {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.status {
+	--color: #90a6be;
+}
+.status.open {
+	--color: #199de9;
+}
+.status.unclear-open {
+	--color: #ff9100;
+}
+.status.closed {
+	--color: #ca008d;
+}
+
+.status {
+	width: 100%;
+	margin: 0;
+	padding: 64px 0;
+	gap: 16px;
+	box-sizing: border-box;
+	background-color: #222;
+	position: relative;
+	min-height: 50vh;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 2fr 1fr;
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.utopia .status {
+	background-image: url("../img/utopia.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.status:before,
+.status:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100px;
+	z-index: 1;
+}
+
+.status:before {
+	top: 0;
+	background-image: linear-gradient(to bottom, #00000060, transparent);
+}
+
+.status:after {
+	bottom: 0;
+	background-image: linear-gradient(to top, #00000060, transparent);
+}
+
+.status > img {
+	grid-row: 1 / span 1;
+	grid-column: 2 / span 1;
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+}
+
+.status > .last-update {
+	grid-row: 3 / span 1;
+	grid-column: 2 / span 1;
+	text-align: center;
+	align-self: flex-start;
+}
+
+.status > .last-update:before {
+	content: "Stand: ";
+	display: inline;
+	opacity: 0.5;
+}
+
+.status > .line {
+	grid-column: 2 / span 1;
+	grid-row: 2 / span 1;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 4px solid white;
+	box-sizing: border-box;
+	color: white;
+	padding: 16px;
+	font-size: 48px;
+	line-height: 48px;
+	font-family: 'Rubik Glitch', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	width: 100%;
+	max-width: 400px;
+	aspect-ratio: 5/1;
+	border-radius: 128px;
+	text-align: center;
+	corner-shape: bevel;
+	box-shadow: 0 0 16px 8px var(--color), 0 0 16px 8px var(--color) inset;
+	text-shadow: 0 0 16px var(--color), 0 0 16px var(--color), 0 0 16px var(--color);
+}
+
+.status .paf {
+	position: absolute;
+	bottom: -64px;
+	width: auto;
+	right: 0;
+	z-index: 2;
+	grid-row: 3 / span 1;
+	grid-column: 1 / span 3;
+}

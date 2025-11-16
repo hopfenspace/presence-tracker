@@ -1,0 +1,34 @@
+[package]
+name = "webserver"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies.galvyn]
+version = "0.1.0"
+git = "https://github.com/myOmikron/galvyn.git"
+rev = "1a651aa11d75f3a6ed5d66118955d14726c0cb6b"
+features = ["contrib-settings", "rorm-postgres-only", "rorm-cli", "rorm-time", "rorm-uuid", "rorm-schemars"]
+
+[dependencies]
+# Error handling
+thiserror = "~2"
+
+# Webframework
+hyper = { version = "~1" } # Http library
+hyper-util = { version = "~0.1", features = ["tokio"] } # hyper tokio compatibility
+tower-http = { version = "~0.6", features = ["trace"] } # Common middlewares
+
+# Async
+tokio = { version = "~1", features = ["full"] }
+
+# Json
+serde = { version = "~1", features = ["derive"] }
+serde_json = { version = "~1" }
+
+# Cli
+clap = { version = "~4", features = ["derive"] }
+
+# Logging
+tracing = { version = "~0.1" } # Base API
+tracing-subscriber = { version = "~0.3", features = ["tracing-log", "env-filter"] }
+tracing-forest = { version = "~0.3", features = ["ansi", "tokio", "smallvec", "chrono"] }

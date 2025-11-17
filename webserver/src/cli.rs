@@ -19,5 +19,8 @@ pub enum Command {
     /// Run the migrations on the database
     Migrate,
     /// Create new migrations
-    MakeMigrations,
+    MakeMigrations {
+        /// Target directory for the migrations
+        migration_dir: String,
+    },
 }

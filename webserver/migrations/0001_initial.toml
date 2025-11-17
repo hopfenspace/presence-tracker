@@ -1,0 +1,187 @@
+[Migration]
+Hash = "12127388557252389610"
+Initial = true
+Replaces = []
+
+[[Migration.Operations]]
+Type = "CreateModel"
+Name = "presencedata"
+
+[[Migration.Operations.Fields]]
+Name = "uuid"
+Type = "uuid"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "primary_key"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "webserver/src/models/presence/db.rs"
+Line = 11
+Column = 9
+
+[[Migration.Operations.Fields]]
+Name = "date_time"
+Type = "datetime"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "index"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "not_null"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "webserver/src/models/presence/db.rs"
+Line = 14
+Column = 9
+
+[[Migration.Operations.Fields]]
+Name = "count"
+Type = "int64"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "not_null"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "webserver/src/models/presence/db.rs"
+Line = 19
+Column = 9
+
+[[Migration.Operations]]
+Type = "CreateModel"
+Name = "locationmodel"
+
+[[Migration.Operations.Fields]]
+Name = "location"
+Type = "varchar"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "max_length"
+Value = 255
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "primary_key"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "webserver/src/models/location/db.rs"
+Line = 7
+Column = 9
+
+[[Migration.Operations]]
+Type = "CreateModel"
+Name = "galvynsettings"
+
+[[Migration.Operations.Fields]]
+Name = "uuid"
+Type = "uuid"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "primary_key"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "/home/omikron/.cargo/git/checkouts/galvyn-f52542b4eef301aa/1a651aa/contrib/galvyn-contrib-settings/src/model.rs"
+Line = 10
+Column = 9
+
+[[Migration.Operations.Fields]]
+Name = "key"
+Type = "varchar"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "max_length"
+Value = 255
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "unique"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "not_null"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "/home/omikron/.cargo/git/checkouts/galvyn-f52542b4eef301aa/1a651aa/contrib/galvyn-contrib-settings/src/model.rs"
+Line = 13
+Column = 9
+
+[[Migration.Operations.Fields]]
+Name = "value"
+Type = "binary"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "not_null"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "/home/omikron/.cargo/git/checkouts/galvyn-f52542b4eef301aa/1a651aa/contrib/galvyn-contrib-settings/src/model.rs"
+Line = 15
+Column = 9
+
+[[Migration.Operations]]
+Type = "CreateModel"
+Name = "galvynsession"
+
+[[Migration.Operations.Fields]]
+Name = "id"
+Type = "varchar"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "max_length"
+Value = 255
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "primary_key"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "/home/omikron/.cargo/git/checkouts/galvyn-f52542b4eef301aa/1a651aa/galvyn-core/src/session.rs"
+Line = 40
+Column = 5
+
+[[Migration.Operations.Fields]]
+Name = "expires_at"
+Type = "datetime"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "not_null"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "/home/omikron/.cargo/git/checkouts/galvyn-f52542b4eef301aa/1a651aa/galvyn-core/src/session.rs"
+Line = 41
+Column = 5
+
+[[Migration.Operations.Fields]]
+Name = "data"
+Type = "binary"
+
+[[Migration.Operations.Fields.Annotations]]
+Type = "not_null"
+
+[Migration.Operations.Fields.SourceDefinedAt]
+File = "/home/omikron/.cargo/git/checkouts/galvyn-f52542b4eef301aa/1a651aa/galvyn-core/src/session.rs"
+Line = 42
+Column = 5
+
+[[Migration.Operations]]
+Type = "CreateField"
+Model = "presencedata"
+
+[Migration.Operations.Field]
+Name = "location"
+Type = "varchar"
+
+[[Migration.Operations.Field.Annotations]]
+Type = "max_length"
+Value = 255
+
+[[Migration.Operations.Field.Annotations]]
+Type = "foreign_key"
+
+[Migration.Operations.Field.Annotations.Value]
+TableName = "locationmodel"
+ColumnName = "location"
+OnDelete = "Cascade"
+OnUpdate = "Cascade"
+
+[[Migration.Operations.Field.Annotations]]
+Type = "not_null"
+
+[Migration.Operations.Field.SourceDefinedAt]
+File = "webserver/src/models/presence/db.rs"
+Line = 17
+Column = 9

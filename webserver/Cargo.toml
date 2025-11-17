@@ -12,6 +12,7 @@ features = ["contrib-settings", "rorm-postgres-only", "rorm-cli", "rorm-time", "
 [dependencies]
 # Error handling
 thiserror = "~2"
+anyhow = { version = "~1" }
 
 # Webframework
 hyper = { version = "~1" } # Http library
@@ -24,6 +25,7 @@ tokio = { version = "~1", features = ["full"] }
 # Json
 serde = { version = "~1", features = ["derive"] }
 serde_json = { version = "~1" }
+strum = { version = "~0.27", features = ["derive"] }
 
 # Cli
 clap = { version = "~4", features = ["derive"] }
@@ -32,3 +34,6 @@ clap = { version = "~4", features = ["derive"] }
 tracing = { version = "~0.1" } # Base API
 tracing-subscriber = { version = "~0.3", features = ["tracing-log", "env-filter"] }
 tracing-forest = { version = "~0.3", features = ["ansi", "tokio", "smallvec", "chrono"] }
+
+# RNG
+rand = { version = "~0.9" }

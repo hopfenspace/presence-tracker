@@ -9,7 +9,7 @@ use galvyn::core::re_exports::rorm;
 use galvyn::rorm::Database;
 use galvyn::rorm::DatabaseConfiguration;
 use galvyn::rorm::config::DatabaseConfig;
-use tracing::instrument;
+use tracing::info;
 use tracing::level_filters::LevelFilter;
 use tracing_subscriber::EnvFilter;
 use tracing_subscriber::Layer;
@@ -19,12 +19,15 @@ use tracing_subscriber::util::SubscriberInitExt;
 use crate::cli::Cli;
 use crate::cli::Command;
 use crate::config::DB;
+use crate::config::GENERATE_TEST_DATA;
 use crate::config::LISTEN_ADDRESS;
 use crate::config::LISTEN_PORT;
 
 mod cli;
 pub mod config;
 pub mod http;
+pub mod models;
+pub mod modules;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
@@ -39,19 +42,29 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     match cli.command {
         Command::Start => start().await?,
-        Command::MakeMigrations => make_migrations().await?,
+        Command::MakeMigrations { migration_dir } => make_migrations(migration_dir).await?,
         Command::Migrate => migrate().await?,
     }
 
     Ok(())
 }
 
-#[instrument]
 async fn start() -> Result<(), Box<dyn Error>> {
-    Galvyn::builder(GalvynSetup::default())
+    let mut module_builder = Galvyn::builder(GalvynSetup::default());
+    module_builder
         .register_module::<Database>(DatabaseSetup::Custom(DatabaseConfiguration::new(
             DB.clone(),
         )))
+        .register_module::<modules::db_init::DbInit>(());
+
+    if *GENERATE_TEST_DATA {
+        info!("Starting with generate-test-data module");
+        module_builder.register_module::<modules::test_data::TestData>(());
+    } else {
+        info!("Starting without generate-test-data module");
+    }
+
+    module_builder
         .init_modules()
         .await?
         .add_routes(http::initialize_routes())
@@ -64,7 +77,7 @@ async fn start() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-async fn make_migrations() -> Result<(), Box<dyn Error>> {
+async fn make_migrations(migration_dir: String) -> Result<(), Box<dyn Error>> {
     use std::io::Write;
 
     /// Temporary file to store models in
@@ -77,7 +90,7 @@ async fn make_migrations() -> Result<(), Box<dyn Error>> {
     rorm::cli::make_migrations::run_make_migrations(
         rorm::cli::make_migrations::MakeMigrationsOptions {
             models_file: MODELS.to_string(),
-            migration_dir: "/migrations".to_string(),
+            migration_dir,
             name: None,
             non_interactive: false,
             warnings_disabled: false,

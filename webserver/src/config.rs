@@ -35,3 +35,6 @@ pub static DB: LazyLock<DatabaseDriver> = LazyLock::new(|| DatabaseDriver::Postg
     user: POSTGRES_USER.clone(),
     password: POSTGRES_PASSWORD.clone(),
 });
+
+/// Whether to generate test_data data
+pub static GENERATE_TEST_DATA: EnvVar<bool> = EnvVar::optional("GENERATE_TEST_DATA", || false);

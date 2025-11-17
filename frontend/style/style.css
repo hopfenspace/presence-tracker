@@ -306,7 +306,7 @@ table.date-stats tr td[a]::before {
 table.date-stats tr td[a]::after {
 	background-color: transparent;
 	color: #00aeff;
-	content: "LIVE (" attr(a) ")";
+	content: "LIVE (" attr(data-raw) ")";
 	text-align: center;
 	width: 4ch;
 	left: -2ch;

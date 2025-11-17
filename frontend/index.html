@@ -46,6 +46,35 @@
 			Pfaffenhofen
 		</div>
 	</h1>
+	<div id="content">
+		<p>
+			Der Hopfenspace ist der <a href="https://de.wikipedia.org/wiki/Hackerspace">Hackerspace</a> in Pfaffenhofen
+			a.d.Ilm.
+			Bei uns findest du an Technik interessierte Menschen aus allen Bereichen, von Physik bis Informatik.
+			<br />
+			Zusammen basteln, programmieren, löten &ndash; Zusammen erschaffen wir erstaunliche Dinge!
+		</p>
+		<p>
+			Wenn du Interesse hast, mit zu machen, wende dich an <noscript>(protected e-mail)</noscript><a
+				id="contact"></a>.
+			<script type="text/javascript">
+				(function () {
+					var element = document.getElementById("contact");
+					var addr = [107, 111, 110, 116, 97, 107, 116, 64, 104, 111, 112, 102, 101, 110, 46, 115, 112, 97, 99, 101];
+					addr = addr.map(x => String.fromCharCode(x)).join("");
+					element.href = "mailto:" + addr;
+					element.innerHTML = addr;
+				})();
+			</script>
+		</p>
+		<p>
+			Warum <b>Hopfen</b>space? - Pfaffenhofen liegt im Herzen der
+			<a href="https://de.wikipedia.org/wiki/Hallertau">Hallertau</a>, dem größten zusammenhängenden
+			Hopfenanbaugebiet
+			der Welt.
+		</p>
+	</div>
+
 	<div class="location utopia">
 		<div class="status loading">
 			<div class="bg"></div>
@@ -274,7 +303,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="location bunker">
+	<d class="location bunker">
 		<div class="status closed">
 			<img src="img/bunker-logo.svg" alt="Bunker">
 			<div class="line">
@@ -290,7 +319,8 @@
 				</p>
 			</div>
 		</div>
-	</div>
+		</div>
+		<script src="dist/script.js"></script>
 </body>
 
 </html>

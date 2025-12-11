@@ -33,9 +33,9 @@
 </head>
 
 <body>
-	<h1>
+	<div id="header-banner">
 		<div class="hopfenspace">
-			<img style="height: 3em;" src="img/hop-transparent.svg" alt="">
+			<img style="height: 3em;" src="img/hop-transparent.svg" alt="Hopfenspace Logo">
 			Hopfenspace
 		</div>
 		<div class="times">
@@ -45,7 +45,7 @@
 			<img style="height: 0.75em;" src="img/hackerspace-textonly.svg" alt="Hackerspace">
 			Pfaffenhofen
 		</div>
-	</h1>
+	</div>
 	<div id="content">
 		<p>
 			Der Hopfenspace ist der <a href="https://de.wikipedia.org/wiki/Hackerspace">Hackerspace</a> in Pfaffenhofen
@@ -90,7 +90,7 @@
 				<p>
 					Location "Utopia" - regelmäßige Öffnungszeiten:
 				</p>
-				<ul>
+				<ul class="opening-hours">
 					<li>Jeden 1. Donnerstag im Monat</li>
 				</ul>
 			</div>
@@ -297,13 +297,15 @@
 					</tr>
 				</tbody>
 			</table>
+			<!--
 			<a href="https://pfaffenhofen.de/artikel/jugendkultur-talentstation-utopia/" target="_blank"
 				referrerpolicy="origin">
 				<img src="img/utopia-paf.svg" alt="Utopia - Stadt Pfaffenhofen" class="paf">
 			</a>
+			-->
 		</div>
 	</div>
-	<d class="location bunker">
+	<div class="location bunker">
 		<div class="status closed">
 			<img src="img/bunker-logo.svg" alt="Bunker">
 			<div class="line">
@@ -319,8 +321,10 @@
 				</p>
 			</div>
 		</div>
-		</div>
-		<script src="dist/script.js"></script>
-</body>
-
+	</div>
+	<div id="footer">
+		<a href="https://bn-paf.de/impressum/">Impressum</a>
+	</div>
+	<script src="dist/script.js"></script>
+	</body>
 </html>

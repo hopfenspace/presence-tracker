@@ -1,2 +1,2 @@
 # presence-tracker
-A tracker, that tracks presence, obvious things are obious
+A tracker, that tracks presence, obvious things are obvious
